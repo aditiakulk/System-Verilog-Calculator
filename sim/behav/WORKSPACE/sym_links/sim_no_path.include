@@ -1,0 +1,16 @@
+sym_links/calculator_pkg.sv
+sym_links/adder32.sv
+sym_links/controller.sv
+sym_links/full_adder.sv
+sym_links/result_buffer.sv
+sym_links/CF_SRAM_1024x32.tt_180V_25C.v
+sym_links/top_lvl.sv
+sym_links/tb_calculator.sv
+// ../../src/verilog/tb_sram_dump.sv
+// ../../src/verilog/tb_cf_sram.sv
+
+// Add additional testbench(es) using this format
+// ../../src/verilog/tb_name_of_test.sv
+// Warning: If your added testbench create a text file,
+// please make sure it is commented out when you run verify_onboarding
+// as 2 testbench cannot write to text files at the same time

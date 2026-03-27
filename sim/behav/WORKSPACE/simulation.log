@@ -1,0 +1,155 @@
+xrun(64): 25.03-s003: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	25.03-s003: Started on Feb 08, 2026 at 22:04:22 EST
+xrun
+	-64bit
+	-sv
+	-linedebug
+	-access +rwc
+	-timescale 1ns/10ps
+	+define+SIM=1
+	+define+INST_FILE=""
+	+testname=
+	+incdir+sym_links
+	-coverage all
+	-licqueue
+	-covoverwrite
+	-f sym_links/sim_no_path.include
+		sym_links/calculator_pkg.sv
+		sym_links/adder32.sv
+		sym_links/controller.sv
+		sym_links/full_adder.sv
+		sym_links/result_buffer.sv
+		sym_links/CF_SRAM_1024x32.tt_180V_25C.v
+		sym_links/top_lvl.sv
+		sym_links/tb_calculator.sv
+	-logfile simulation.log
+
+   User defined plus("+") options:
+	+testname=
+
+xrun: *W,BADPRF: The -linedebug option may have an adverse performance impact.
+file: sym_links/calculator_pkg.sv
+	package worklib.calculator_pkg:sv
+		errors: 0, warnings: 0
+file: sym_links/adder32.sv
+	module worklib.adder32:sv
+		errors: 0, warnings: 0
+file: sym_links/controller.sv
+	module worklib.controller:sv
+		errors: 0, warnings: 0
+file: sym_links/full_adder.sv
+	module worklib.full_adder:sv
+		errors: 0, warnings: 0
+file: sym_links/result_buffer.sv
+	module worklib.result_buffer:sv
+		errors: 0, warnings: 0
+file: sym_links/CF_SRAM_1024x32.tt_180V_25C.v
+	module worklib.CF_SRAM_1024x32_macro:v
+		errors: 0, warnings: 0
+	module worklib.CF_SRAM_1024x32_memory_mode:v
+		errors: 0, warnings: 0
+file: sym_links/top_lvl.sv
+	module worklib.top_lvl:sv
+		errors: 0, warnings: 0
+file: sym_links/tb_calculator.sv
+	module worklib.tb_calculator:sv
+		errors: 0, warnings: 0
+xmvlog: *W,SPDUSD: Include directory sym_links given but not used.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 1
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		calculator_pkg
+		tb_calculator
+
+	Extracting FSMs for coverage:
+		worklib.controller
+			FSM extracted for state register state
+xmelab: *W,COVDNC: Coverage inside Verilog library cells and VHDL vital cells is not enabled by default; if needed, use the set_libcell_scoring command at elaboration.
+		worklib.full_adder
+		worklib.adder32
+		worklib.result_buffer
+		worklib.top_lvl
+		worklib.tb_calculator
+	Total FSMs extracted = 1
+	Building instance overlay tables: .
+xmelab: *W,COVFDP: FSM description matching across instance of a module for "COVFDM" warning has been moved from elaboration to simulation dumping. To restore old matching behavior, use "set_backward_compat -COVFDM_during_elab". Also, it is recommended to use set_parameterized_module_coverage CCF command to avoid coverage loss due to FSM description difference across instances of a module.
+xmelab: *W,COVFHT: FSM hold transitions (transitions to the current state) are not extracted for any FSM in default mode.
+................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
+	Generating native compiled code:
+		worklib.result_buffer:sv <0x05c9ace0>
+			streams:   5, words:  3010
+		worklib.full_adder:sv <0x58851537>
+			streams:   1, words:  1047
+		worklib.CF_SRAM_1024x32_macro:v <0x6b418bcc>
+			streams:  62, words: 50350
+		worklib.tb_calculator:sv <0x3357125c>
+			streams:  14, words: 18059
+		worklib.adder32:sv <0x3cbf226e>
+			streams:   5, words:  4236
+		worklib.top_lvl:sv <0x6a0608da>
+			streams:  51, words: 17456
+		worklib.controller:sv <0x1fec7cb0>
+			streams:  38, words: 37532
+		worklib.CF_SRAM_1024x32_memory_mode:v <0x63c75ad8>
+			streams:  93, words: 63467
+    logic [31:0] expected_post_lower [0:1023];
+                                   |
+xmelab: *W,COVMDD (./sym_links/tb_calculator.sv,23|35): Toggle coverage for bit, logic, reg, wire, enum and struct multi-dimensional static arrays and vectors is not supported by default. To enable toggle coverage for enum multi-dimensional static arrays specify 'set_toggle_scoring -sv_enum enable_mda' and for other multi-dimensional static arrays, specify 'set_toggle_scoring -sv_mda [<max_bit_base2_exponent>] [-sv_mda_of_struct]' ccf command in the coverage configuration file.
+xmelab: *W,COVNOEN: By default, toggle coverage is not supported for systemverilog enumerated nets and variables. To enable toggle coverage of these objects, specify the 'set_toggle_scoring -sv_enum' command in the coverage configuration file.
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                41       8
+		Verilog packages:        1       1
+		Primitives:              6       2
+		Registers:             247     119
+		Scalar wires:          424       -
+		Expanded wires:         64       2
+		Vectored wires:         39       -
+		Named events:            8       4
+		Always blocks:          51      28
+		Initial blocks:         16       9
+		Parallel blocks:         1       1
+		Cont. assignments:     164      80
+		Pseudo assignments:    160       -
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.tb_calculator:sv
+Loading snapshot worklib.tb_calculator:sv .................... Done
+xcelium> source /tools/software/cadence/xcelium/latest/tools/xcelium/files/xmsimrc
+xcelium> run
+xmsim: *W,SHMPOPT: Some objects excluded from $shm_probe due to optimizations.
+            File: ./sym_links/tb_calculator.sv, line = 47, pos = 17
+           Scope: tb_calculator
+            Time: 0 FS + 0
+
+
+--------------Beginning Simulation!--------------
+
+Time:                    0
+--------------Initializing Signals---------------
+
+Time:                10000
+
+-------------Finished Simulation!----------------
+
+Time:             23170000
+Cycle Count: 1157 cycles (from S_IDLE to S_END)
+Simulation complete via $finish(1) at time 23170 NS + 0
+./sym_links/tb_calculator.sv:65         $finish;
+xcelium> exit
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  tb_calculator(tb_calculator)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_70c73a6b_00000000.ucm
+  data               :  ./cov_work/scope/test/icc_70c73a6b_00000000.ucd
+TOOL:	xrun(64)	25.03-s003: Exiting on Feb 08, 2026 at 22:04:23 EST  (total: 00:00:01)
